@@ -63,7 +63,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── name ── */
     .name {
       font-family: 'EB Garamond', serif;
       font-size: 2.6rem;
@@ -77,7 +76,6 @@
     .tagline { font-size: 0.78rem; color: var(--dim); font-weight: 300; letter-spacing: 0.04em; }
     .tagline em { font-family: 'EB Garamond', serif; font-style: italic; color: #9a8070; font-size: 0.9rem; }
 
-    /* ── section label ── */
     .section-label {
       font-size: 0.65rem;
       letter-spacing: 0.15em;
@@ -89,25 +87,26 @@
     }
     .section-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
 
-    .label-about  { color: var(--sage); }
+    .label-about    { color: var(--sage); }
     .label-projects { color: var(--sky); }
     .label-writing  { color: var(--amber); }
+    .label-more     { color: var(--rose); }
 
-    .label-about::after  { background: color-mix(in srgb, var(--sage) 20%, var(--line)); }
+    .label-about::after    { background: color-mix(in srgb, var(--sage) 20%, var(--line)); }
     .label-projects::after { background: color-mix(in srgb, var(--sky) 20%, var(--line)); }
     .label-writing::after  { background: color-mix(in srgb, var(--amber) 20%, var(--line)); }
+    .label-more::after     { background: color-mix(in srgb, var(--rose) 20%, var(--line)); }
 
-    /* ── about ── */
     .about-text { font-size: 0.88rem; line-height: 1.75; color: #b8a898; font-weight: 300; }
     .about-text + .about-text { margin-top: 0.75rem; }
 
-    /* ── project list ── */
     .project-list { list-style: none; }
     .project-list li { border-bottom: 1px solid var(--line); }
     .project-list li:first-child { border-top: 1px solid var(--line); }
     .project-list a {
       display: flex; justify-content: space-between; align-items: baseline;
       padding: 0.75rem 0; text-decoration: none; color: inherit; gap: 1rem;
+      cursor: pointer;
     }
     .project-list a:hover .proj-name { color: var(--sky); }
     .project-list a:hover .proj-arrow { opacity: 1; transform: translateX(2px); color: var(--sky); }
@@ -116,7 +115,6 @@
     .proj-desc { font-size: 0.72rem; color: var(--dim); font-weight: 300; }
     .proj-arrow { font-size: 0.75rem; color: var(--dim); opacity: 0; transition: opacity 0.15s, transform 0.15s, color 0.15s; flex-shrink: 0; }
 
-    /* ── post list ── */
     .post-list { list-style: none; }
     .post-list li { border-bottom: 1px solid var(--line); }
     .post-list li:first-child { border-top: 1px solid var(--line); }
@@ -128,12 +126,13 @@
     .post-title { font-size: 0.88rem; color: var(--fg); transition: color 0.15s; font-weight: 300; }
     .post-date { font-size: 0.7rem; color: var(--dim); flex-shrink: 0; font-style: italic; font-family: 'EB Garamond', serif; }
 
-    /* ── footer ── */
+    /* For "More" section specifically */
+    .more-list a:hover .post-title { color: var(--rose); }
+
     footer { margin-top: 5rem; font-size: 0.68rem; color: var(--dimmer); display: flex; gap: 1.5rem; }
-    footer a { color: var(--dim); text-decoration: none; transition: color 0.15s; }
+    footer a { color: var(--dim); text-decoration: none; transition: color 0.15s; cursor: pointer; }
     footer a:hover { color: var(--amber); }
 
-    /* ── cursor ── */
     .cursor {
       display: inline-block; width: 2px; height: 1em;
       background: var(--amber); vertical-align: text-bottom; margin-left: 2px;
@@ -141,7 +140,6 @@
     }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-    /* ── post nav ── */
     .post-nav {
       display: flex; justify-content: space-between; align-items: center;
       margin-bottom: 3.5rem;
@@ -156,7 +154,6 @@
     .nav-link.next::after  { content: ' →'; }
     .nav-link.disabled { opacity: 0.2; pointer-events: none; }
 
-    /* ── post body ── */
     .post-heading {
       font-family: 'EB Garamond', serif;
       font-size: 2rem; font-weight: 400; color: var(--accent);
@@ -182,13 +179,6 @@
     .post-body pre { background: #141210; border: 1px solid var(--line); border-radius: 4px; padding: 1rem 1.1rem; margin: 1.25rem 0; overflow-x: auto; }
     .post-body pre code { background: none; padding: 0; font-size: 0.8rem; color: #b0a090; line-height: 1.65; }
 
-    .callout {
-      border-left: 2px solid var(--amber-dim);
-      padding: 0.6rem 1rem; margin: 1.5rem 0;
-      background: var(--amber-muted);
-    }
-    .callout p { font-size: 0.82rem !important; color: #b08060 !important; margin: 0 !important; font-family: 'IBM Plex Mono', monospace !important; }
-
     .bottom-nav {
       display: flex; justify-content: space-between;
       margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
@@ -197,17 +187,128 @@
     .home-section { margin-bottom: 3rem; }
     .home-header { margin-bottom: 4rem; }
 
+    .proj-page-heading {
+      font-family: 'EB Garamond', serif;
+      font-size: 2rem; font-weight: 400; color: var(--accent);
+      line-height: 1.2; margin-bottom: 0.5rem;
+    }
+    .proj-page-meta {
+      font-size: 0.68rem; color: var(--sky); letter-spacing: 0.06em; margin-bottom: 0.4rem;
+    }
+    .proj-page-lang {
+      font-size: 0.65rem; color: var(--dim); letter-spacing: 0.08em; margin-bottom: 2.5rem;
+    }
+    .proj-page-body p {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.15rem; line-height: 1.8; color: #c0b0a0; margin-bottom: 1.4rem;
+    }
+    .proj-page-body h2 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--sky); margin: 2.5rem 0 1rem;
+    }
+
     @media (max-width: 480px) {
       .name { font-size: 2rem; }
-      .post-heading { font-size: 1.6rem; }
+      .post-heading, .proj-page-heading { font-size: 1.6rem; }
       main { padding: 3.5rem 0 5rem; }
     }
   </style>
 </head>
 <body>
   <main id="app"></main>
+
   <script>
+    const processPage = {
+      slug: 'process',
+      title: 'The 8-Week Journey',
+      body: `
+        <div class="callout">
+          <p>The "Short Version": I spent 8 weeks moving from a failed idea to a finished suite of digital tools.</p>
+        </div>
+
+        <h2>Weeks 1-2: The Reality Check</h2>
+        <p>I started by trying to create a custom launcher for Minecraft. I quickly realized the "foundation" I was building on was too unstable for an 8-week project. I had to make a tough executive decision: <strong>abandon the plan and pivot.</strong> I spent the rest of week 2 researching more reliable ways to build tools that actually solve problems.</p>
+
+        <div class="media-item">
+          <div style="aspect-ratio: 16/9; background: #1a1815; display: flex; align-items: center; justify-content: center; color: var(--dim); font-size: 0.7rem; text-align: center; padding: 20px;">
+            <img src= 'https://i.postimg.cc/nzYyQ2x6/Screenshot-2026-05-07-at-6-23-53-AM.png' alt='failed' style="width:100%; display:block; height:auto;">
+          </div>
+          <div class="media-caption">Evidence: Knowing when to stop is just as important as knowing how to start.</div>
+          <div style ="aspect-ratio: 16/9; background: #1a1815; display: flex; align-items: center; justify-content: center; color: var(--dim); font-size: 0.7rem; text-align: center; padding: 20px;">
+            <img src= 'https://i.postimg.cc/Dzygvc0v/Screenshot-2026-05-07-at-6-42-30-AM.png' alt='failed' style="width:100%; display:block; height:auto;">
+          </div>
+          <div class="media-caption">Very early prototype of this site</div>
+        </div>
+
+        <h2>Weeks 3-4: The Digital Librarian</h2>
+        <p>I built a <strong>Web Crawler</strong>. Think of this like a digital librarian that can read an entire website in seconds and find every link on it. Most of the work here was teaching the computer how to "read" a website and ignore the junk.</p>
+
+        <div class="media-item">
+          <div style="aspect-ratio: 16/9; background: #1a1815; display: flex; align-items: center; justify-content: center; color: var(--dim); font-size: 0.7rem; text-align: center; padding: 20px;">
+            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/kGWOMCKIFss?si=Dn28FlHYQhQC9MA3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>          </div>
+          <div class="media-caption">Evidence: The "brain" of the crawler working behind the scenes.</div>
+        </div>
+
+        <h2>Weeks 5-6: Learning a New Language</h2>
+        <p>I started building <strong>Tauri-Wrap</strong>, a tool that turns websites into desktop apps. I had to use a language called <strong>Rust</strong>. It’s known for being incredibly strict—if you make one tiny mistake, the whole thing won't even start. It was like trying to write a book in a language I barely knew while a teacher corrected every single comma.</p>
+
+        <div class="media-item">
+          <div style="aspect-ratio: 16/9; background: #1a1815; display: flex; align-items: center; justify-content: center; color: var(--dim); font-size: 0.7rem; text-align: center; padding: 20px;">
+            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/PbPQlYV7xqY?si=-3Xog8x1fS1zaLgT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media
+~                                       │; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
+          </div>
+          <div class="media-caption">Evidence: Finally "speaking" the computer's language well enough. <em>note: I apparently didn't look far enough and found a tool called pake which does the same thing</em></div>
+        </div>
+
+        <h2>Weeks 7-8: Building the Gallery</h2>
+        <p>From the start, (enter Laufey) I knew I needed a way to show the projects off (my blog posts too). I built this website from scratch. Instead of using a pre-made template (like Wix or Squarespace), I hand-crafted the design to make it feel fast, unique, and professional.</p>
+
+        <div class="media-item">
+          <div style="aspect-ratio: 16/9; background: #1a1815; display: flex; align-items: center; justify-content: center; color: var(--dim); font-size: 0.7rem; text-align: center; padding: 20px;">
+            <img src='https://i.postimg.cc/TwFDgVcg/Screenshot-2026-05-07-at-6-17-57-AM.png' alt='code of this site' style="width:100%; display:block; height:auto;">  
+          </div>
+          <div class="media-caption">Evidence: Putting the finishing touches on the final product.</div>
+        </div>
+      `
+    };
     const posts = [
+      {
+        slug: 'final-reflection',
+        title: 'Genius Hour: Final Reflection',
+        date: 'may 2026',
+        body: `
+          <h2>The Process (Step-by-Step)</h2>
+          <p>My project followed a cycle of <strong>Research, Rapid Prototyping, and Refinement</strong>. Every week, I logged hours working on the core logic of my tools. In the beginning, I was too focused on the "how" (language choice) and not the "what" (user value). By mid-semester, I shifted to a <em>Feature-First</em> approach, building the web crawler logic before styling this UI.</p>
+
+          <h2>Successes & Pride</h2>
+          <p>I am most proud of the <strong>Tauri-Wrap CLI</strong>. Writing in Rust was a massive hurdle, but successfully compiling a tool that generates <em>other</em> apps made me realize how much my technical skills have leveled up over these months.</p>
+
+          <h2>Hurdles & Readjustments</h2>
+          <p><strong>The Hurdle:</strong> I originally intended to release a fully-fledged Minecraft mod. However, the complexity of the Forge API and conflicting Java dependencies proved to be a "dead end" for my current timeline. 
+          <br><strong>The Readjustment:</strong> I realized the project was too big. I made the executive decision to <strong>pivot</strong>—I shelved the mod and focused my energy on the Web Crawler and this Portfolio Hub to ensure I had a professional "Final Product" to show.</p>
+
+          <h2>The Most Important Lesson</h2>
+          <p>The most important thing I learned is that <strong>project scope is everything</strong>. Being a "genius" isn't about knowing everything; it's about knowing when to pivot and how to finish what you started.</p>
+        `
+      },
+      {
+        slug: 'april-2026',
+        title: 'Blog Post #2',
+        date: 'april 2026',
+        body: `
+          <p>So, another month down. Here's what actually happened.</p>
+          <h2>Accomplishments</h2>
+          <p>Honestly, more than I expected. The site got a lot better — added this blog section, cleaned up the layout, and it's starting to actually look like something I'd want to show people. I also built and published tauri-wrap, a CLI tool written in Rust that takes a URL and wraps it into a desktop app. Got it on GitHub and packaged it for AUR. That one felt good to finish. Also kept chipping away at my Linux setup — Hyprland, Waybar, the whole thing. It's getting pretty dialed in.</p>
+          <h2>Obstacles</h2>
+          <p>The Minecraft mod stalled out completely. I'm not going to pretend otherwise — I kept running into walls and it just kind of stopped. It's still on the list, but it didn't happen this month. Also, setting up hosting is always a headache when school content filters exist.</p>
+          <h2>Goals</h2>
+          <p>Sort of. Last month I said I'd make the site better and add projects — done. The mod was the other goal, and that one's a no. Two out of three isn't bad I guess.</p>
+          <h2>This Upcoming Month</h2>
+          <p>I want to actually write more posts, keep improving the site, and maybe finally make some real progress on the mod. My goal is to have at least one more project I can add to the projects list that isn't just "here's a repo."</p>
+          <p>— Gabriel</p>
+        `
+      },
       {
         slug: 'the-first-blog',
         title: 'The first blog',
@@ -216,14 +317,8 @@
           <p>You should have already read the "about me" section on the homepage. If not: hi, I'm Gabriel. This is my blog. And
           I'm a middle schooler who spends too much time on a computer. I play Minecraft, do random stuff, and occasionally do things that make my computer explode.</p>
           <h2>Passion</h2>
-          <p>Now, why am I doing this website as a project for genius hour? I could have done literally anything else. I could have built a robot,
-          made a game, learned to do something new. But I wanted to make a website.
-          I'm not entirely sure what this'll be. Probably a mix of things I'm
-          working on, stuff I figured out after way too long, and the occasional project that actually works without breaking everything.</p>
-          <p>I keep running into problems where the answer exists somewhere on the
-          internet, but it's buried in a three-year-old Reddit thread or a forum
-          post where the accepted answer is "nvm fixed it." Writing things dow
-          here means at minimum <em>I</em> can find them later.</p>
+          <p>Now, why am I doing this website as a project for genius hour? I could have done literally anything else. I could have built a robot, made a game, learned to do something new. But I wanted to make a website. I'm not entirely sure what this'll be. Probably a mix of things I'm working on, stuff I figured out after way too long, and the occasional project that actually works without breaking everything.</p>
+          <p>I keep running into problems where the answer exists somewhere on the internet, but it's buried in a three-year-old Reddit thread or a forum post where the accepted answer is "nvm fixed it." Writing things down here means at minimum <em>I</em> can find them later.</p>
           <h2>Materials</h2>
           <p>A computer and some common sense. And also a lot of trial and error, and probably a lot of help from the internet. That's it, I guess I may be a tad bit too lazy.</p>
           <p>This month I'll probably just be making this site better, add some random projects, and probably struggle to make a blog post that isn't just "I did a thing, it was cool, here's a screenshot." But we'll see how it goes. And a struggle to make a Minecraft mod too, oh well.</p>
@@ -231,18 +326,71 @@
           <p>- Gabriel</p>
         `
       },
-    {
-      slug: 'the-second-blog',
-      title: 'The second blog',
-      date: 'april 2026'
-      body:
-        <p>Alrighty, 1 month update time.</p> 
-    }
+    ];
+
+   const statusPage = {
+      slug: 'status',
+      title: 'Wins & Lessons',
+      body: `
+        <h2>The Wins</h2>
+        <p><strong>Speaking "Computer":</strong> My biggest success was learning how to write code that talks directly to the computer's hardware. It’s faster and more efficient than standard software, and mastering that skill in 8 weeks was a massive personal milestone.</p>
+        <p><strong>Design Ownership:</strong> Most people use templates to make things look good. I built the "look and feel" of this site myself. It taught me that design is just as much a science as it is an art.</p>
+
+        <h2>The Hurdles</h2>
+        <p><strong>The "Sunk Cost" Trap:</strong> I wasted two weeks on an idea that didn't work. The hardest lesson was learning to let go of that work so I could move on to something that actually functioned. It was a lesson in time management more than coding.</p>
+        <p><strong>The Language Barrier:</strong> Some of the tools I used are professional-grade and very complicated. There were days where I felt like I was hitting a brick wall, but persistence is what turned those "walls" into the tools you see today.</p>
+      `
+    };    const projects = [
+      {
+        slug: 'proj-this-site',
+        name: 'This site',
+        desc: "You're looking at it.",
+        github: 'https://github.com/egt-cs50/Genius-Hour-sy2026-303',
+        lang: 'html · css · javascript',
+        body: `
+          <p>This is the site you're currently on. Built as a way to display my Genius Hour project, it started as a simple portfolio page and grew into something I'm actually somewhat proud of.</p>
+          <h2>What it is</h2>
+          <p>A single-file HTML site with hash-based routing — no frameworks, no build step. Everything lives in one index.html file (the standard way to make websites) Pages are rendered by JavaScript swapping out the contents of a "&lt;main&gt;" tag depending on the URL hash. (Basically, the site can have different pages while still being "1 page", a.k.a. the url doesnt change so it works on google sites).</p>
+          <h2>Design</h2>
+          <p>The aesthetic is dark and monochrome-warm — amber accents on a near-black background, IBM Plex Mono for the terminal feel, EB Garamond for the editorial moments. The noise overlay and fade-in animations were added to give it some texture and life without being distracting.</p>
+          <h2>What I learned</h2>
+          <p>Mostly that CSS variables are great and that single-file sites are way more maintainable than they have any right to be. </p>
+        `
+      },
+      {
+        slug: 'proj-web-crawler',
+        name: 'Web Crawler',
+        desc: 'A simple web crawler built with Python.',
+        github: 'https://github.com/egt-cs50/Web-Crawler',
+        lang: 'python',
+        body: `
+          <p>A command-line web crawler written in Python. Give it a URL, it follows links and maps out what it finds.</p>
+          <h2>How it works</h2>
+          <p>It starts at a seed URL, fetches the page, extracts all &lt;a&gt; tags, and adds any new URLs to a queue. It keeps going until it runs out of links or hits a depth limit.</p>
+          <h2>Stack</h2>
+          <p>Pure Python — "requests" for fetching pages and "BeautifulSoup" for parsing HTML (another language but used to program websites like this one)</p>
+          <h2>What I'd change</h2>
+          <p>It needs robots.txt respect and rate limiting. But for a first pass it does what it says on the tin.</p>
+        `
+      },
+      {
+        slug: 'proj-tauri-wrap',
+        name: 'Tauri-Wrap',
+        desc: 'Wraps any URL into a native desktop app.',
+        github: 'https://github.com/egt-cs50/tauri-wrap',
+        lang: 'rust · tauri',
+        body: `
+          <p>A Command-Line tool that takes a URL and spits out a native desktop application. Point it at <code>google.com</code>, get a Google desktop app.</p>
+          <h2>Why</h2>
+          <p>I wanted native-feeling wrappers for web tools without the overhead of Electron. Tauri is lightweight and ships tiny binaries.</p>
+          <h2>How it works</h2>
+          <p>The tool generates a minimal Tauri project pointed at the given URL, builds it, and outputs a binary. The whole thing is written in Rust. </p>
+        `
+      },
     ];
 
     function navigate(slug) {
-      if (slug) { window.location.hash = slug; }
-      else { window.location.hash = ''; }
+      window.location.hash = slug || '';
       render();
       window.scrollTo(0, 0);
     }
@@ -250,15 +398,28 @@
     function render() {
       const hash = window.location.hash.replace('#', '');
       const app = document.getElementById('app');
-      if (!hash) { renderHome(app); }
-      else {
-        const idx = posts.findIndex(p => p.slug === hash);
-        if (idx !== -1) renderPost(app, idx);
-        else renderHome(app);
-      }
-    }
 
-    function renderHome(app) {
+      if (!hash) { renderHome(app); return; }
+      
+      if (hash === 'process') {
+        renderGenericPage(app, processPage, 'var(--rose)');
+        return;
+      }
+      
+      if (hash === 'status') {
+        renderGenericPage(app, statusPage, 'var(--sage)');
+        return;
+      }
+
+      const postIdx = posts.findIndex(p => p.slug === hash);
+      if (postIdx !== -1) { renderPost(app, postIdx); return; }
+
+      const proj = projects.find(p => p.slug === hash);
+      if (proj) { renderProject(app, proj); return; }
+
+      renderHome(app);
+    }
+   function renderHome(app) {
       document.title = 'gabriel';
       app.innerHTML = `
         <header class="home-header fade fade-1">
@@ -268,42 +429,23 @@
 
         <div class="home-section fade fade-2">
           <div class="section-label label-about">about</div>
-          <p class="about-text">Middle schooler who spends too much time on a computer.
-          I play Minecraft, do random stuff, and occasionally do things
-          that make my computer explode.</p>
-          <p class="about-text">Currently: Making a Minecraft mod, relearning html and struggling to do something for genius hour. :/</p>
+          <p class="about-text">Middle schooler who spends too much time on a computer. Finished my Genius Hour project and building Command-Line tools in Rust.</p>
         </div>
 
         <div class="home-section fade fade-3">
           <div class="section-label label-projects">projects</div>
           <ul class="project-list">
-            <li>
-              <a href="https://github.com/egt-cs50/Genius-Hour-sy2026-303" target="_blank" rel="noopener">
-                <span class="proj-left">
-                  <span class="proj-name">This site</span>
-                  <span class="proj-desc">You're looking at it.</span>
-                </span>
-                <span class="proj-arrow">↗</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/egt-cs50/Web-Crawler" target="_blank" rel="noopener">
-                <span class="proj-left">
-                  <span class="proj-name">Web Crawler</span>
-                  <span class="proj-desc">A simple web crawler built with Python.</span>
-                </span>
-                <span class="proj-arrow">↗</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/egt-cs50/tauri-wrap" target="_blank" rel="noopener">
-                <span class="proj-left">
-                  <span class="proj-name">Tauri-Wrap</span>
-                  <span class="proj-desc">A simple tool coded in rust that creates an application from a website (i.e. google.com)</span>
-                </span>
-                <span class="proj-arrow">↗</span>
-              </a>
-            </li>
+            ${projects.map(p => `
+              <li>
+                <a onclick="navigate('${p.slug}')">
+                  <span class="proj-left">
+                    <span class="proj-name">${p.name}</span>
+                    <span class="proj-desc">${p.desc}</span>
+                  </span>
+                  <span class="proj-arrow">→</span>
+                </a>
+              </li>
+            `).join('')}
           </ul>
         </div>
 
@@ -321,14 +463,47 @@
           </ul>
         </div>
 
+        <div class="home-section fade fade-5">
+          <div class="section-label label-more">more</div>
+          <ul class="post-list">
+            <li>
+              <a onclick="navigate('process')">
+                <span class="post-title">Development Process</span>
+                <span class="post-date">the 15-week log</span>
+              </a>
+            </li>
+            <li>
+              <a onclick="navigate('status')">
+                <span class="post-title">Successes & Obstacles</span>
+                <span class="post-date">wins and losses</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
         <footer class="fade fade-5">
           <a href="https://github.com/egt-cs50" target="_blank">github</a>
-          <a href="mailto:hello@example.com">email</a>
           <span>made with too much free time</span>
         </footer>
       `;
     }
 
+    function renderGenericPage(app, data, accentColor = 'var(--amber)') {
+      document.title = `${data.title} — gabriel`;
+      app.innerHTML = `
+        <nav class="post-nav fade fade-1">
+          <button class="nav-link home" onclick="navigate('')">gabriel</button>
+        </nav>
+        <div class="fade fade-2">
+          <h1 class="post-heading" style="color:${accentColor}">${data.title}</h1>
+        </div>
+        <div class="divider fade fade-2" style="background:color-mix(in srgb, ${accentColor} 20%, var(--line))"></div>
+        <article class="post-body fade fade-3">${data.body}</article>
+        <nav class="bottom-nav fade fade-4">
+          <button class="nav-link home" onclick="navigate('')">← back home</button>
+        </nav>
+      `;
+    }
     function renderPost(app, idx) {
       const post = posts[idx];
       const prev = posts[idx + 1] || null;
@@ -337,25 +512,37 @@
       app.innerHTML = `
         <nav class="post-nav fade fade-1">
           <button class="nav-link home" onclick="navigate('')">gabriel</button>
-          ${next
-            ? `<button class="nav-link next" onclick="navigate('${next.slug}')">next post</button>`
-            : `<span class="nav-link disabled">next post →</span>`}
+          ${next ? `<button class="nav-link next" onclick="navigate('${next.slug}')">next post</button>` : `<span class="nav-link disabled">next post →</span>`}
         </nav>
-
         <div class="fade fade-2">
           <h1 class="post-heading">${post.title}</h1>
           <div class="post-meta">${post.date}</div>
         </div>
-
         <div class="divider fade fade-2"></div>
-
-        <article class="post-body fade fade-3">
-          ${post.body}
-        </article>
-
+        <article class="post-body fade fade-3">${post.body}</article>
         <nav class="bottom-nav fade fade-4">
           ${prev ? `<button class="nav-link prev" onclick="navigate('${prev.slug}')">prev post</button>` : `<span></span>`}
           ${next ? `<button class="nav-link next" onclick="navigate('${next.slug}')">next post</button>` : `<span></span>`}
+        </nav>
+      `;
+    }
+
+    function renderProject(app, proj) {
+      document.title = `${proj.name} — gabriel`;
+      app.innerHTML = `
+        <nav class="post-nav fade fade-1">
+          <button class="nav-link home" onclick="navigate('')">gabriel</button>
+          <a class="nav-link" href="${proj.github}" target="_blank" style="color:var(--sky)">github ↗</a>
+        </nav>
+        <div class="fade fade-2">
+          <h1 class="proj-page-heading">${proj.name}</h1>
+          <div class="proj-page-meta">${proj.desc}</div>
+          <div class="proj-page-lang">${proj.lang}</div>
+        </div>
+        <div class="divider fade fade-2"></div>
+        <article class="proj-page-body fade fade-4">${proj.body}</article>
+        <nav class="bottom-nav fade fade-5">
+          <button class="nav-link home" onclick="navigate('')">← back home</button>
         </nav>
       `;
     }
